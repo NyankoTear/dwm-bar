@@ -4,14 +4,14 @@
 # Joe Standring <git@joestandring.com>
 # GNU GPLv3
 
-# Dependencies: pamixer
+# Dependencies: pulsemixer
 
 dwm_pulse () {
-    VOL=$(pamixer --get-volume)
-    STATE=$(pamixer --get-mute)
+    VOL=$(pulsemixer --get-volume | grep -oe ^[0-9]*)
+    STATE=$(pulsemixer --get-mute)
     
     printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "unicode" ]; then
+    if [ "$IDENTIFIER" = "" ]; then
         if [ "$STATE" = "true" ] || [ "$VOL" -eq 0 ]; then
             printf "🔇"
         elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
