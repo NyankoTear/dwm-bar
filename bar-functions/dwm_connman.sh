@@ -8,11 +8,6 @@
 
 dwm_connman () {
     printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "" ]; then
-        printf "🌐 "
-    else
-        printf "NET "
-    fi
 
     # get the connmanctl service name
     # this is a UID starting with 'vpn_', 'wifi_', or 'ethernet_', we dont care for the vpn one
@@ -31,9 +26,9 @@ dwm_connman () {
 
     # if STRENGTH is empty, we have a wired connection
     if [ "$STRENGTH" ]; then
-        printf "%s %s %s%%" "$IP" "$CONNAME" "$STRENGTH"
+        printf " %s %s%%" "$CONNAME" "$STRENGTH"
     else
-        printf "%s %s" "$IP" "$CONNAME"
+        printf " %s" "$CONNAME"
     fi
 
     printf "%s\n" "$SEP2"

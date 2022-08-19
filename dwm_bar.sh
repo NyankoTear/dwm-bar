@@ -90,5 +90,5 @@ do
     
     # Uncomment the line below to enable the lowerbar 
 #    xsetroot -name "$upperbar;$lowerbar"
-    sleep 1
+    sleep 0.1
 done
